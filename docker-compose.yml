@@ -1,0 +1,16 @@
+#version: '3.9'
+name: TechSupport_AI
+services:
+  streamlit:
+    image: python:3.9-slim
+    network_mode: host  # Utilise le réseau de l'ordi
+    volumes:
+      - ./app:/app
+      - ./data:/app/data
+    working_dir: /app
+    command: >
+      bash -c "
+      pip install -r requirements.txt &&
+      streamlit run app.py --server.address=0.0.0.0 --server.port=8501
+      "
+    restart: unless-stopped
