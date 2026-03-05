@@ -1,11 +1,11 @@
- Cybersecurity TechSupport AI / CyberOLLAMA
+# Cybersecurity TechSupport AI / CyberOLLAMA
 
 Intelligent AI Chat Interface for Technical Support and Cybersecurity
 
 A powerful, customizable AI chatbot interface for cybersecurity professionals, developers, and IT support teams. 100% local with Ollama or cloud-based with OpenAI — complete privacy when you need it, flexibility when you want it.
 
 
- Key Features
+# Key Features
 
  100% Local and Private
 Run completely offline with Ollama - no API keys, no data leaving your infrastructure. Air-gapped capable for secure environments. Complete privacy for sensitive cybersecurity operations.
@@ -20,7 +20,7 @@ Multi-provider support for Ollama local and OpenAI API with all GPT versions. Fi
 Support for all Ollama models including Phi-3 Mini, Llama 3.2, Mistral, Gemma, and CodeLlama. Instant switching between models. Pull any model from Ollama library.
 
 
- Quick Start Guide
+# Quick Start Guide
 
  Prerequisites
 Ubuntu 24.04 or any Debian-based distribution. Docker optional for containerized deployment. Ollama for local models.
@@ -34,7 +34,7 @@ chmod +x install.sh
 
 The script updates system packages, installs Python 3, pip, and dependencies, installs Docker and Docker Compose, installs Ollama and pulls the default model llama3.2:3b, sets up the project structure, and launches the application.
 
- Method 2: Manual Installation
+# Method 2: Manual Installation
 
 pip install streamlit requests pandas openpyxl python-dotenv
 curl -fsSL https://ollama.com/install.sh | sh
@@ -43,7 +43,7 @@ ollama pull phi3:mini
 cd ~/TechSupport_AI/app
 streamlit run app.py
 
- Method 3: Docker Compose
+# Method 3: Docker Compose
 
 cd ~/TechSupport_AI
 docker compose up --build
@@ -55,7 +55,7 @@ ollama pull llama3.2:3b
 Access the application at http://localhost:8501
 
 
- Pre-configured IT and Cybersecurity Roles
+# Pre-configured IT and Cybersecurity Roles
 
 Service Desk Manager - Tier 3: Root cause plus event ID plus specific fix plus KB reference
 
@@ -88,7 +88,7 @@ Security Analyst: CVE analysis plus CVSS score plus exploit likelihood plus miti
 CVE Researcher: Technical analysis plus affected systems plus exploitation plus mitigations
 
 
- Configuration Files
+# Configuration Files
 
 docker-compose.yml configures the Docker container with host network mode for Ollama access, mounting the app and data directories.
 
@@ -103,7 +103,7 @@ setup_prompts.json contains JSON configuration for all IT roles with labels and 
 config.toml configures Streamlit server settings including CORS and XSRF protection.
 
 
- Advanced Configuration
+# Advanced Configuration
 
  Adding Custom Models with Ollama
 ollama pull mistral:7b
@@ -111,7 +111,7 @@ ollama pull codellama:7b
 ollama pull gemma2:2b
 ollama pull dolphin-mistral:7b
 
- Custom Role Creation
+# Custom Role Creation
 Edit data/setup_prompts.json to add your own roles:
 
 {
@@ -121,18 +121,18 @@ Edit data/setup_prompts.json to add your own roles:
   }
 }
 
- Environment Variables
+#  Environment Variables
 Create .env in the app directory:
 OPENAI_API_KEY=sk-your-key-here
 OLLAMA_HOST=http://localhost:11434
 
 
- Security Considerations
+#  Security Considerations
 
 The 100% local option ensures no data ever leaves your machine when using Ollama. API keys are stored only in session state and never persisted to disk. Session isolation with unique session IDs prevents chat history leakage. The system is air-gap capable and can run completely offline in secure environments. There is no telemetry, tracking, analytics, or phone home functionality.
 
 
- Troubleshooting
+# Troubleshooting
 
  Ollama Connection Issues
 sudo systemctl status ollama
@@ -155,11 +155,11 @@ curl http://localhost:11434/api/tags
 ollama pull phi3:mini
 
 
- Performance Optimization
+ # Performance Optimization
 
 For production deployment, use Docker with resource limits. For development, run directly with Python for faster iteration. For memory constraints, use smaller models like phi3:mini or llama3.2:1b. When GPU is available, Ollama automatically uses GPU acceleration. For multi-user environments, deploy behind a reverse proxy with authentication.
 
- Roadmap
+#  Roadmap
 
 Multi-user support with role-based access control
 Chat history export to PDF, Markdown, and JSON
@@ -171,45 +171,16 @@ Mobile app for on-the-go access
 Voice input for hands-free operation
 
 
- Contributing
+# Contributing
 
 Contributions are welcome. Fork the repository, create your feature branch, commit your changes, push to the branch, and open a Pull Request. Maintain the cybersecurity and IT focus. Keep responses technical and production-ready. Add tests for new features and update documentation.
 
 
- License
+# License
 
 This project is licensed under the MIT License. See the LICENSE file for details.
 
 
- Acknowledgments
-
-Streamlit for the web framework, Ollama for local model inference, OpenAI for API compatibility, and all contributors and testers.
-
-
- Support and Community
-
-GitHub Issues for bug reports and feature requests
-Documentation Wiki and guides
-Email for maintainer contact
-
-
- Use Cases
-
-Cybersecurity: Threat analysis, pentesting assistance, incident response
-IT Support: Tier 3 escalation, root cause analysis, knowledge base creation
-DevOps: Pipeline debugging, infrastructure as code, monitoring setup
-Cloud Engineering: Terraform generation, cost optimization, security compliance
-Database Administration: Query optimization, performance tuning, backup strategies
-Compliance: Audit preparation, control testing, evidence collection
-
-
- Quick Commands Reference
-
-cd ~/TechSupport_AI/app && streamlit run app.py
-cd ~/TechSupport_AI && docker compose up
-ollama pull dolphin-mistral:7b
-ollama list
-journalctl -u ollama -f
 
 
 Cybersecurity TechSupport AI / CyberOLLAMA - Your intelligent, private AI assistant for cybersecurity and IT operations.
