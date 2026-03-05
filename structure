@@ -1,12 +1,12 @@
 TechSupport_AI/
-├── docker-compose.yml
-├── install.sh
-├── Dockerfile
-├── app/
-│   ├── app.py
-│   ├── style.css
-│   └── requirements.txt
-├── data/
-│   └── setup_prompts.json
-└── .streamlit/
-    └── config.toml
+├── docker-compose.yml          # Docker composition for containerized deployment
+├── install.sh                   # Automated Ubuntu 24.04 setup script
+├── Dockerfile                    # Multi-stage Docker build configuration
+├── app/                          # Main application directory
+│   ├── app.py                    # Main Streamlit application
+│   ├── style.css                  # Custom CSS styling
+│   └── requirements.txt           # Python dependencies
+├── data/                         # Configuration data
+│   └── setup_prompts.json         # IT & Cybersecurity role prompts
+└── .streamlit/                    # Streamlit configuration
+    └── config.toml                 # Streamlit server settings
