@@ -1,0 +1,547 @@
+/* style.css - TechSupport_AI Modern Interface */
+
+/* Importation des polices */
+@import url('https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700&family=JetBrains+Mono:wght@400;500&display=swap');
+
+/* Variables globales */
+:root {
+    --primary-color: #2E7D32;  /* Vert foncé */
+    --primary-light: #4CAF50;  /* Vert moyen */
+    --primary-dark: #1B5E20;   /* Vert très foncé */
+    --secondary-color: #2E7D32; /* Vert pour la cohérence */
+    --accent-color: #1B5E20;    /* Vert foncé accent */
+    --danger-color: #d32f2f;
+    --warning-color: #f57c00;
+    
+    /* Gris foncés */
+    --dark-bg: #2C3E50;        /* Gris-bleu foncé */
+    --darker-bg: #1a252f;       /* Gris très foncé */
+    --card-bg: #f8f9fa;         /* Fond clair pour les cartes */
+    
+    /* Texte */
+    --text-primary: #000000;     /* Noir pur */
+    --text-secondary: #2C3E50;   /* Gris foncé */
+    --text-muted: #666666;       /* Gris moyen */
+    
+    /* Bordures */
+    --border-color: #e0e0e0;     /* Gris clair */
+    --border-dark: #2C3E50;      /* Gris foncé */
+    
+    /* États */
+    --hover-bg: #e8f5e9;         /* Vert très clair au survol */
+    --success-bg: rgba(46, 125, 50, 0.1);
+    --error-bg: rgba(211, 47, 47, 0.1);
+    
+    /* Dégradés */
+    --gradient-1: linear-gradient(135deg, #2C3E50 0%, #2E7D32 100%); /* Gris foncé -> Vert */
+    --gradient-2: linear-gradient(135deg, #1B5E20 0%, #2E7D32 100%); /* Vert foncé -> Vert */
+    
+    /* Ombres - plus subtiles pour fond clair */
+    --shadow-sm: 0 2px 4px rgba(0, 0, 0, 0.05);
+    --shadow-md: 0 4px 6px rgba(0, 0, 0, 0.07);
+    --shadow-lg: 0 10px 15px rgba(0, 0, 0, 0.1);
+}
+
+/* Style de base */
+.stApp {
+    background: #ffffff;  /* Fond blanc pur */
+    font-family: 'Inter', sans-serif;
+}
+
+/* Main content area */
+.main .block-container {
+    padding-top: 1rem;
+    padding-bottom: 0rem;
+    max-width: 1200px;
+    background: #ffffff;
+}
+
+/* Sidebar personnalisée */
+section[data-testid="stSidebar"] {
+    background: var(--dark-bg);  /* Gris foncé */
+    border-right: 1px solid var(--border-dark);
+}
+
+section[data-testid="stSidebar"] > div {
+    padding: 2rem 1rem;
+}
+
+/* ===== MODIFICATION UNIQUE : TEXTE EN NOIR DANS LA SIDEBAR ===== */
+section[data-testid="stSidebar"] label,
+section[data-testid="stSidebar"] .stRadio label,
+section[data-testid="stSidebar"] .stSelectbox label,
+section[data-testid="stSidebar"] .stCheckbox label,
+section[data-testid="stSidebar"] p,
+section[data-testid="stSidebar"] span,
+section[data-testid="stSidebar"] .stMarkdown,
+section[data-testid="stSidebar"] .stExpander > div:first-child p {
+    color: #4CAF50 !important;
+}
+/* ============================================================= */
+
+section[data-testid="stSidebar"] .stExpander {
+    background: var(--darker-bg);
+    border: 1px solid rgba(255, 255, 255, 0.1);
+    border-radius: 12px;
+    margin-bottom: 1rem;
+    box-shadow: var(--shadow-sm);
+    overflow: hidden;
+}
+
+section[data-testid="stSidebar"] .stExpander > div:first-child {
+    background: transparent;
+    border: none;
+    color: #ffffff !important;  /* Texte blanc sur fond foncé */
+    font-weight: 600;
+    font-size: 0.85rem;
+    text-transform: uppercase;
+    letter-spacing: 0.05em;
+    padding: 0.75rem 1rem;
+}
+
+section[data-testid="stSidebar"] .stExpander > div:first-child p {
+    color: #ffffff !important;
+    font-size: 0.85rem;
+    font-weight: 600;
+}
+
+section[data-testid="stSidebar"] .stExpander > div:first-child:hover {
+    background: rgba(255, 255, 255, 0.1);
+}
+
+/* Input fields dans la sidebar */
+section[data-testid="stSidebar"] .stTextInput > div > div > input {
+    background: rgba(255, 255, 255, 0.1) !important;
+    border: 1px solid rgba(255, 255, 255, 0.2) !important;
+    border-radius: 8px !important;
+    color: #ffffff !important;
+    font-size: 0.9rem !important;
+    padding: 0.75rem 1rem !important;
+}
+
+section[data-testid="stSidebar"] .stTextInput > div > div > input:focus {
+    border-color: var(--primary-light) !important;
+    box-shadow: 0 0 0 2px rgba(76, 175, 80, 0.2) !important;
+}
+
+/* Select boxes dans la sidebar */
+section[data-testid="stSidebar"] .stSelectbox > div > div {
+    background: rgba(255, 255, 255, 0.1) !important;
+    border: 1px solid rgba(255, 255, 255, 0.2) !important;
+    border-radius: 8px !important;
+    color: #ffffff !important;
+}
+
+section[data-testid="stSidebar"] .stSelectbox > div > div > div {
+    color: #ffffff !important;
+}
+
+/* Sliders dans la sidebar */
+section[data-testid="stSidebar"] .stSlider > div > div > div {
+    color: #ffffff !important;
+}
+
+/* Buttons dans la sidebar */
+section[data-testid="stSidebar"] .stButton > button {
+    background: rgba(255, 255, 255, 0.1) !important;
+    border: 1px solid rgba(255, 255, 255, 0.2) !important;
+    color: #ffffff !important;
+}
+
+section[data-testid="stSidebar"] .stButton > button:hover {
+    background: var(--primary-color) !important;
+    border-color: var(--primary-color) !important;
+}
+
+/* Checkbox dans la sidebar */
+section[data-testid="stSidebar"] .stCheckbox label {
+    color: #ffffff !important;
+}
+
+section[data-testid="stSidebar"] .stCheckbox label > div:first-child {
+    background: rgba(255, 255, 255, 0.1) !important;
+    border-color: rgba(255, 255, 255, 0.3) !important;
+}
+
+/* Input fields (hors sidebar) */
+.stTextInput > div > div > input {
+    background: #ffffff !important;
+    border: 1px solid var(--border-color) !important;
+    border-radius: 8px !important;
+    color: var(--text-primary) !important;
+    font-size: 0.9rem !important;
+    padding: 0.75rem 1rem !important;
+}
+
+.stTextInput > div > div > input:focus {
+    border-color: var(--primary-color) !important;
+    box-shadow: 0 0 0 2px rgba(46, 125, 50, 0.1) !important;
+}
+
+/* Select boxes (hors sidebar) */
+.stSelectbox > div > div {
+    background: #ffffff !important;
+    border: 1px solid var(--border-color) !important;
+    border-radius: 8px !important;
+    color: var(--text-primary) !important;
+}
+
+.stSelectbox > div > div:hover {
+    border-color: var(--primary-light) !important;
+}
+
+/* Buttons (hors sidebar) */
+.stButton > button {
+    background: #ffffff !important;
+    border: 1px solid var(--border-color) !important;
+    border-radius: 8px !important;
+    color: var(--text-primary) !important;
+    font-size: 0.9rem !important;
+    font-weight: 500 !important;
+    padding: 0.5rem 1rem !important;
+    transition: all 0.2s ease !important;
+}
+
+.stButton > button:hover {
+    background: var(--primary-color) !important;
+    border-color: var(--primary-color) !important;
+    color: #ffffff !important;
+    box-shadow: var(--shadow-md) !important;
+}
+
+/* Header personnalisé */
+.ts-header {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    padding: 1.5rem 2rem;
+    background: #ffffff;
+    border-bottom: 2px solid var(--primary-color);
+    position: sticky;
+    top: 0;
+    z-index: 999;
+    margin: -1rem -1rem 0 -1rem;
+    box-shadow: var(--shadow-sm);
+}
+
+.ts-header-logo {
+    font-size: 1.8rem;
+    font-weight: 700;
+    background: var(--gradient-1);
+    -webkit-background-clip: text;
+    -webkit-text-fill-color: transparent;
+    letter-spacing: -0.02em;
+}
+
+.ts-header-logo span {
+    font-weight: 300;
+    color: var(--text-primary);
+    -webkit-text-fill-color: var(--text-primary);
+}
+
+.ts-header-badge {
+    background: var(--hover-bg);
+    padding: 0.5rem 1rem;
+    border-radius: 20px;
+    font-size: 0.9rem;
+    color: var(--primary-dark);
+    border: 1px solid var(--primary-light);
+    font-family: 'JetBrains Mono', monospace;
+}
+
+/* Hero section */
+.hero-section {
+    text-align: center;
+    padding: 3rem 2rem;
+    background: linear-gradient(135deg, #f5f5f5 0%, #e8f5e9 100%);
+    margin: 2rem 2rem 0 2rem;
+    border-radius: 24px;
+    border: 1px solid var(--border-color);
+}
+
+.hero-label {
+    font-size: 0.9rem;
+    text-transform: uppercase;
+    letter-spacing: 0.1em;
+    color: var(--text-muted);
+    margin-bottom: 1rem;
+}
+
+.hero-title {
+    font-size: 4rem;
+    font-weight: 800;
+    line-height: 1.1;
+    color: var(--text-primary);
+    margin-bottom: 1rem;
+}
+
+.hero-title span {
+    background: var(--gradient-1);
+    -webkit-background-clip: text;
+    -webkit-text-fill-color: transparent;
+}
+
+.hero-sub {
+    font-size: 1.1rem;
+    color: var(--text-secondary);
+    max-width: 600px;
+    margin: 0 auto;
+    padding: 0.5rem 1rem;
+    background: #ffffff;
+    border-radius: 30px;
+    display: inline-block;
+    border: 1px solid var(--border-color);
+    box-shadow: var(--shadow-sm);
+}
+
+/* Status bar */
+.status-bar {
+    display: flex;
+    align-items: center;
+    gap: 1.5rem;
+    padding: 0.75rem 2rem;
+    background: #ffffff;
+    margin: 1rem 2rem 2rem 2rem;
+    border-radius: 40px;
+    border: 1px solid var(--border-color);
+    font-size: 0.85rem;
+    color: var(--text-secondary);
+    font-family: 'JetBrains Mono', monospace;
+    overflow-x: auto;
+    white-space: nowrap;
+    box-shadow: var(--shadow-sm);
+}
+
+.status-dot {
+    width: 10px;
+    height: 10px;
+    background: var(--primary-color);
+    border-radius: 50%;
+    animation: pulse 2s infinite;
+    flex-shrink: 0;
+}
+
+@keyframes pulse {
+    0% {
+        box-shadow: 0 0 0 0 rgba(46, 125, 50, 0.7);
+    }
+    70% {
+        box-shadow: 0 0 0 10px rgba(46, 125, 50, 0);
+    }
+    100% {
+        box-shadow: 0 0 0 0 rgba(46, 125, 50, 0);
+    }
+}
+
+.status-text {
+    padding: 0.25rem 0;
+    flex-shrink: 0;
+    color: var(--text-secondary);
+}
+
+.status-text strong {
+    color: var(--text-primary);
+    font-weight: 600;
+}
+
+/* Chat messages */
+.stChatMessage {
+    background: transparent !important;
+    padding: 0 !important;
+    margin: 1rem 2rem !important;
+}
+
+.stChatMessage [data-testid="chatMessageAvatar"] {
+    background: var(--hover-bg);
+    border: 1px solid var(--primary-light);
+    border-radius: 50%;
+    padding: 2px;
+}
+
+.stChatMessage [data-testid="chatMessageContent"] {
+    background: #ffffff !important;
+    border: 1px solid var(--border-color) !important;
+    border-radius: 18px !important;
+    padding: 1.5rem !important;
+    color: var(--text-primary) !important;
+    font-size: 1rem !important;
+    line-height: 1.6 !important;
+    box-shadow: var(--shadow-sm) !important;
+}
+
+.stChatMessage[data-testid="chatMessageUser"] [data-testid="chatMessageContent"] {
+    background: var(--hover-bg) !important;
+    border-color: var(--primary-light) !important;
+}
+
+/* Chat input */
+.stChatInput {
+    margin: 1rem 2rem 2rem 2rem !important;
+    position: sticky;
+    bottom: 1rem;
+    z-index: 998;
+}
+
+.stChatInput > div {
+    background: #ffffff !important;
+    border: 1px solid var(--border-color) !important;
+    border-radius: 40px !important;
+    padding: 0.5rem 0.5rem 0.5rem 1.5rem !important;
+    box-shadow: var(--shadow-lg) !important;
+}
+
+.stChatInput input {
+    color: var(--text-primary) !important;
+    font-size: 1rem !important;
+}
+
+.stChatInput input::placeholder {
+    color: var(--text-muted) !important;
+}
+
+.stChatInput button {
+    background: var(--primary-color) !important;
+    border-radius: 30px !important;
+    color: white !important;
+    padding: 0.5rem 1.5rem !important;
+    transition: all 0.2s ease !important;
+    border: none !important;
+}
+
+.stChatInput button:hover {
+    background: var(--primary-dark) !important;
+    transform: scale(1.05);
+}
+
+/* Footer */
+.ts-footer {
+    text-align: center;
+    padding: 2rem;
+    color: var(--text-muted);
+    font-size: 0.85rem;
+    border-top: 1px solid var(--border-color);
+    margin-top: 3rem;
+    background: #ffffff;
+}
+
+/* Success/Warning messages */
+.stAlert {
+    background: #ffffff !important;
+    border: 1px solid var(--border-color) !important;
+    border-radius: 8px !important;
+    color: var(--text-primary) !important;
+    padding: 1rem !important;
+}
+
+.stSuccess {
+    background: var(--success-bg) !important;
+    border-color: var(--primary-color) !important;
+    color: var(--primary-dark) !important;
+}
+
+.stError {
+    background: var(--error-bg) !important;
+    border-color: var(--danger-color) !important;
+}
+
+/* Scrollbar personnalisée */
+::-webkit-scrollbar {
+    width: 8px;
+    height: 8px;
+}
+
+::-webkit-scrollbar-track {
+    background: #f1f1f1;
+}
+
+::-webkit-scrollbar-thumb {
+    background: var(--primary-light);
+    border-radius: 4px;
+}
+
+::-webkit-scrollbar-thumb:hover {
+    background: var(--primary-color);
+}
+
+/* Animations */
+@keyframes fadeIn {
+    from {
+        opacity: 0;
+        transform: translateY(10px);
+    }
+    to {
+        opacity: 1;
+        transform: translateY(0);
+    }
+}
+
+.stChatMessage {
+    animation: fadeIn 0.3s ease-out;
+}
+
+/* Markdown content */
+.stMarkdown {
+    color: var(--text-primary) !important;
+}
+
+.stMarkdown h1, .stMarkdown h2, .stMarkdown h3 {
+    color: var(--text-primary) !important;
+}
+
+.stMarkdown a {
+    color: var(--primary-color) !important;
+}
+
+/* Code blocks */
+.stMarkdown pre {
+    background: #f5f5f5 !important;
+    border: 1px solid var(--border-color) !important;
+    border-radius: 8px !important;
+    padding: 1rem !important;
+}
+
+.stMarkdown code {
+    font-family: 'JetBrains Mono', monospace !important;
+    color: var(--primary-dark) !important;
+}
+
+/* Hide Streamlit branding */
+#MainMenu {visibility: hidden;}
+footer {visibility: hidden;}
+
+/* Responsive design */
+@media (max-width: 768px) {
+    .hero-title {
+        font-size: 2.5rem;
+    }
+    
+    .status-bar {
+        flex-wrap: wrap;
+        gap: 0.75rem;
+        padding: 0.75rem 1rem;
+    }
+    
+    .ts-header {
+        padding: 1rem;
+        flex-direction: column;
+        gap: 0.5rem;
+        text-align: center;
+    }
+    
+    .ts-header-logo {
+        font-size: 1.4rem;
+    }
+    
+    .hero-section {
+        margin: 1rem;
+        padding: 2rem 1rem;
+    }
+    
+    .stChatMessage {
+        margin: 1rem !important;
+    }
+    
+    .stChatInput {
+        margin: 1rem !important;
+    }
+}
