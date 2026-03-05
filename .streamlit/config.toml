@@ -1,0 +1,9 @@
+[server]
+enableCORS = false
+enableXsrfProtection = false
+
+[client]
+showErrorDetails = true
+
+[runner]
+fastReruns = true
