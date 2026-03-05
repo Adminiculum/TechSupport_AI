@@ -180,7 +180,3 @@ Contributions are welcome. Fork the repository, create your feature branch, comm
 
 This project is licensed under the MIT License. See the LICENSE file for details.
 
-
-
-
-Cybersecurity TechSupport AI / CyberOLLAMA - Your intelligent, private AI assistant for cybersecurity and IT operations.
