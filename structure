@@ -1,0 +1,12 @@
+TechSupport_AI/
+├── docker-compose.yml
+├── install.sh
+├── Dockerfile
+├── app/
+│   ├── app.py
+│   ├── style.css
+│   └── requirements.txt
+├── data/
+│   └── setup_prompts.json
+└── .streamlit/
+    └── config.toml
